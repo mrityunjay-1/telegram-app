@@ -18,9 +18,9 @@ server.post('/', async (req, res) => {
   try {
     console.log("call aayo re post me!", req.body );
 
-    // let chat_id = req.body.from;
+    let chat_id = req.body.message.from.id;
     
-    // const res = await axios.post("https://api.telegram.org/bot" + process.env.TELEGRAM_TOKEN + "/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
+    const res = await axios.post("https://api.telegram.org/bot" + process.env.TELEGRAM_TOKEN + "/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
     
     console.log("req.body in post = ");
     
