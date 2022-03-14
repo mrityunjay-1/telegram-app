@@ -16,11 +16,11 @@ server.get('/', (req, res) => {
 
 server.post('/', async (req, res) => {
   try {
-    console.log("call aayo re post me!", req);
+    // console.log("call aayo re post me!", req);
 
     let chat_id = req.body.from.id;
     
-    
+    console.log(req.body, chat_id)
     
   } catch (err) {
     console.error("Something went wrong bhaya!", error);
