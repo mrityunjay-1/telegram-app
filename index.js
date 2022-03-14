@@ -20,7 +20,6 @@ server.post('/', async (req, res) => {
 
     let chat_id = req.body.from.id;
     
-    const res = await axios.post("https://api.telegram.org/bot5125600189:AAESsOm2H2Fcu2gIIX7bGw45a6xVpkf8jaY/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
     
     
   } catch (err) {
