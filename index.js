@@ -16,7 +16,7 @@ server.get('/', (req, res) => {
 
 server.post('/', async (req, res) => {
   try {
-    // console.log("call aayo re post me!", req);
+    console.log("call aayo re post me!");
 
     let chat_id = req.body.from.id;
     
@@ -27,15 +27,6 @@ server.post('/', async (req, res) => {
   }
 })
 
-
-server.get("/getWebhookinfo", (req, res) => {
-  try {
-    res.status(200).send({ data: req.body });
-  } catch (error) {
-    console.error("Something went wrong!");
-    res.status(404).send({ message: "Something is not in order!" });
-  }
-});
 
 server.listen(process.env.PORT, () => {
   console.log("Server is up and running on port: 8080");
