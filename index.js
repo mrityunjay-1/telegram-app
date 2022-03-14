@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios");
 
 const server = express();
 
@@ -7,15 +8,24 @@ server.use(express.urlencoded({ extended: true }));
 
 
 server.get('/', (req, res) => {
-    console.log("call aayo re get me!");
-    res.status(200).send({message: "get"});
+  console.log("call aayo re get me!");
+  res.status(200).send({ message: "get" });
 })
 
 
 
-server.post('/', (req, res) => {
+server.post('/', async (req, res) => {
+  try {
     console.log("call aayo re post me!", req);
-    res.status(200).send({message: "post"});
+
+    let chat_id = req.body.from.id;
+    
+    const res = await axios.post("https://api.telegram.org/bot5125600189:AAESsOm2H2Fcu2gIIX7bGw45a6xVpkf8jaY/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
+    
+    
+  } catch (err) {
+    console.error("Something went wrong bhaya!", error);
+  }
 })
 
 
