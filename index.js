@@ -16,17 +16,27 @@ server.get('/', (req, res) => {
 
 server.post('/', async (req, res) => {
   try {
-    console.log("call aayo re post me!");
+    console.log("call aayo re post me!", req);
 
     let chat_id = req.body.from.id;
     
-    console.log(req.body, chat_id)
+    const res = await axios.post("https://api.telegram.org/bot" + process.env.TELEGRAM_TOKEN + "/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
+    
     
   } catch (err) {
-    console.error("Something went wrong bhaya!", error);
+    console.error("Something went wrong bhaya!", err);
   }
 })
 
+
+server.get("/getWebhookinfo", (req, res) => {
+  try {
+    res.status(200).send({ data: req.body });
+  } catch (error) {
+    console.error("Something went wrong!");
+    res.status(404).send({ message: "Something is not in order!" });
+  }
+});
 
 server.listen(process.env.PORT, () => {
   console.log("Server is up and running on port: 8080");
