@@ -22,6 +22,7 @@ server.post('/', async (req, res) => {
     
     const res = await axios.post("https://api.telegram.org/bot" + process.env.TELEGRAM_TOKEN + "/sendMessage?chat_id=" + chat_id + "&text=Ha hello hello!")
     
+    console.log("req.body in post = ", req.body, res);
     
   } catch (err) {
     console.error("Something went wrong bhaya!", err);
