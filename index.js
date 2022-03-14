@@ -6,7 +6,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 
-server.get('/', () => {
+server.get('/', (req, res) => {
     console.log("call aayo re get me!");
     res.status(200).send({message: "get"});
 })
@@ -28,6 +28,6 @@ server.get("/getWebhookinfo", (req, res) => {
   }
 });
 
-server.listen(8080, () => {
+server.listen(process.env.PORT, () => {
   console.log("Server is up and running on port: 8080");
 });
